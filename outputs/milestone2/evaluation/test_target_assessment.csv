@@ -1,0 +1,5 @@
+model,model_name,selected_before_test,MAE,RMSE,WAPE_pct,MAE_reduction_vs_seasonal_pct,RMSE_reduction_vs_seasonal_pct,WAPE_reduction_vs_seasonal_pct,target_assessable,meets_MAE_target,meets_RMSE_target,meets_both_targets
+lag_ridge,Lag-based ridge regression,True,25.117915977858843,36.51215470544963,15.4307263894872,51.91428638178262,46.182037327515715,51.91428638178262,True,True,True,True
+moving_average_4w,Four-week average,False,26.986607142857142,41.71034793669312,16.57872219053052,48.33686585532614,38.520036233899965,48.336865855326124,True,True,True,True
+seasonal_naive_52w,Seasonal naive (52 weeks),False,52.23571428571429,67.8438069602314,32.0900434420115,0.0,0.0,0.0,True,False,False,False
+polynomial_trend,Polynomial trend,False,71.20328582276636,106.00147832967862,43.74241965504099,-36.31150027604664,-56.24341126938002,-36.31150027604664,True,False,False,False

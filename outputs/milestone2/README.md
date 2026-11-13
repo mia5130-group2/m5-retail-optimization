@@ -25,7 +25,7 @@ Lags use the preceding 1, 2, 4, and 52 complete weeks. Rolling means and sample 
 
 Target-week calendar and California SNAP counts are assumed known at the origin. M5 does not provide event announcement timestamps, so this remains an explicit calendar-availability assumption. Sales are a demand proxy and do not reveal stockouts or unmet demand. Genuine zeros are retained, including early observations that may predate listed-price history.
 
-Forecasts are issued one week at a time. Earlier validation/test sales can become historical inputs after they occur; this is not a single year-ahead forecast. Report quarters by target Monday and retain whole weeks. Part 3 trains and compares point-forecast models; see [the model results](models/README.md). The test period remains unscored, and prediction intervals are a later step.
+Forecasts are issued one week at a time. Earlier validation/test sales can become historical inputs after they occur; this is not a single year-ahead forecast. Report quarters by target Monday and retain whole weeks. Part 3 trains and compares point-forecast models; see [the model results](models/README.md). Part 4 evaluates the fixed methods on all 560 test product-weeks; see [the test evaluation](evaluation/README.md). Test intervals and coverage remain Part 5.
 
 ## Reproduce
 

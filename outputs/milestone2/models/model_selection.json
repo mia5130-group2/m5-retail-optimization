@@ -24,7 +24,7 @@
   "best_MAE_gain_vs_four_week_average_pct": 0.17476252664001546,
   "test_used_for_tuning": false,
   "test_used_for_model_selection": false,
-  "test_scored": false,
+  "test_scored": true,
   "prediction_intervals_available": false,
   "checks_passed": true,
   "training_check_count": 10,
@@ -39,5 +39,8 @@
     "numpy": "2.5.4",
     "pandas": "3.1.1",
     "matplotlib": "3.11.2"
-  }
+  },
+  "test_evaluation_record": "../evaluation/evaluation_metadata.json",
+  "test_coefficient_update_policy": "Original training-fitted coefficients; no validation/test refit",
+  "interval_calibration_frozen_before_test": true
 }

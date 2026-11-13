@@ -1,0 +1,70 @@
+{
+  "completed_part": 4,
+  "test_scored": true,
+  "selected_before_test": "lag_ridge",
+  "test_used_for_tuning": false,
+  "test_used_for_model_selection": false,
+  "coefficient_update_policy": "Use the original training-fitted coefficients; no refit on validation or test",
+  "forecast_policy": "Sequential one-week-ahead forecasts; earlier observed test sales may update later lag inputs",
+  "test_start": "2015-04-27",
+  "test_end": "2016-05-22",
+  "test_weeks": 56,
+  "products": [
+    "FOODS_3_586",
+    "FOODS_3_252",
+    "FOODS_3_714",
+    "FOODS_3_607",
+    "FOODS_3_064",
+    "FOODS_3_555",
+    "FOODS_2_197",
+    "FOODS_3_739",
+    "FOODS_3_501",
+    "FOODS_3_099"
+  ],
+  "observations_per_model": 560,
+  "total_forecasts": 2240,
+  "metric_definitions": {
+    "MAE": "Mean absolute error, units per product-week",
+    "RMSE": "Square root of mean squared error, units per product-week",
+    "WAPE_pct": "100 * sum(abs(error)) / sum(abs(actual)); undefined for zero actual volume",
+    "relative_reduction_pct": "100 * (1 - model error / seasonal-naive error); negative means worse"
+  },
+  "target_rule": "At least 10% lower overall MAE AND RMSE than seasonal naive; report each metric separately",
+  "target_relative_reduction_pct": 10.0,
+  "selected_model_target_met": true,
+  "selected_model_MAE_reduction_pct": 51.91428638178262,
+  "selected_model_RMSE_reduction_pct": 46.182037327515715,
+  "selected_model_products_meeting_both_targets": 10,
+  "selected_model_quarters_meeting_both_targets": 5,
+  "quarter_assignment": "Assign the entire target week to its Monday's calendar quarter; identify partial quarters",
+  "descriptive_test_lowest_MAE_model": "lag_ridge",
+  "descriptive_test_lowest_RMSE_model": "lag_ridge",
+  "interval_calibration_frozen_before_test": true,
+  "prediction_intervals_available": false,
+  "test_interval_coverage_evaluated": false,
+  "fitted_models_fingerprint": "bd3003458236f4a403214094e3e9f0c74b529aca7c1258020c4d15ea0750697b",
+  "pretest_protocol_sha256": "35c2510c72d1586eb49a47eecc1ce080c89422de346af2d3a9ebb912f30aea49",
+  "prepared_panel_sha256": "f6ab60ec3ac5768b6ba14a8cd399511fa88348f7ce63be8f90ce318c2e3d4bfa",
+  "source_sha256": {
+    "sales_train_evaluation.csv": "4b4a47c44c38380d2a9168216fea8c9ff2f31b1ddb772f8a0995952a038b8aa0",
+    "calendar.csv": "d12b5914ef03e66649adf5dd9e996e6602251c22b7a6af8f1f7e3aa12f8860f5",
+    "sell_prices.csv": "9da3ad1f8b8ccacdbdc70612191dd375ec24a4ac6625c24b75b3bc60b0bed2ef"
+  },
+  "versions": {
+    "python": "3.15.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  },
+  "checks_passed": true,
+  "evaluation_check_count": 11,
+  "result_sha256": {
+    "test_predictions.csv": "fbd7f5f3dc5174562a1c92c54f14fa688f464933ca75a1558558b55e938a4dbd",
+    "test_metrics.csv": "0462e3cb840c84b017890a335404d4702be402c4cf9dc3664aa2bcdbd3f3c23d",
+    "test_metrics_by_product.csv": "fcf951e0da4b3e9aab04712b27eb85a33bc70e599619bf3cab4734fae12836b2",
+    "test_metrics_by_quarter.csv": "d51faf4e3e711611593dc65be7f3a6fc00884750fa028d5eb08e6e2e49f9a523",
+    "test_metrics_by_product_quarter.csv": "1e0b6de241b0ae9c3efbba02d24f37901f3a0ebc802f2a5930786b328d536aee",
+    "test_quarter_coverage.csv": "c324192fc77f234bc481044355f597c4ac43c2bfe9a56b7681467355b10f6647",
+    "test_target_assessment.csv": "59446b413ed0636fadc1d1dac55913cb95ea88824d6fd81483fb607fe869ab35"
+  }
+}

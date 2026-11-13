@@ -5,7 +5,7 @@
 - [Milestone 1 — Data Exploration and Understanding](M5_Milestone_1_Data_Exploration_and_Understanding.ipynb): data exploration,
   illustrative baselines, and the report-ready Data Understanding draft.
 - [Milestone 2 — Demand Forecasting](M5_Milestone_2_Demand_Forecasting.ipynb): the fixed CA_1 experiment, product
-  selection audit, final weekly features, leakage checks, and trained-model comparison.
+  selection audit, weekly features, leakage checks, trained models, and held-out test evaluation.
 
 Both notebooks include their own setup and can run independently from a fresh
 kernel. Run the notebook you need from top to bottom; Milestone 2 reads the raw
@@ -79,9 +79,17 @@ are converted to long format. Allow approximately 1–2 GB of available working 
 - Chronological training-fold tuning, validation MAE/RMSE/WAPE, and forecasts for all ten products.
 - Saved model parameters, input definitions, and checks excluding test data from selection.
 
-Parts 1–3 are implemented. Prediction intervals and final held-out test evaluation
-remain the next steps. See [the model comparison](outputs/milestone2/models/README.md)
-for results and limitations.
+- Final MAE/RMSE/WAPE on the same 560 test observations per model.
+- Product, quarter, and product-quarter comparisons, with partial quarters identified.
+- Assessment of the 10% MAE/RMSE reduction target against seasonal naive.
+- Validation-only 80%/95% interval calibration frozen before test scoring.
+
+**Parts 1–4 are implemented.** Part 5 (test intervals, coverage, and uncertainty plots)
+and Part 6 (the final submission report) remain unfinished. See [the validation
+comparison](outputs/milestone2/models/README.md) and [the held-out test
+evaluation](outputs/milestone2/evaluation/README.md) for results and limitations.
+The test comparison retains the original fitted models and validation-selected ridge;
+test outcomes do not drive tuning, refitting, or selection.
 
 ## Outputs
 
@@ -92,12 +100,15 @@ versions, and `data_understanding.md`. These describe the earlier exploratory ex
 Milestone 2 writes its final dataset and supporting tables under `outputs/milestone2/`.
 See [the dataset handoff](outputs/milestone2/README.md) for predictor definitions
 and timing assumptions. Model outputs, figures, fitted parameters, and the validation
-comparison are in `outputs/milestone2/models/`. Running either notebook regenerates
-its own outputs.
+comparison are in `outputs/milestone2/models/`. Final test forecasts, metric tables,
+target assessments, figures, frozen settings, and checks are in
+`outputs/milestone2/evaluation/`. `outputs/milestone2/notebook_validation.json`
+records the fresh-kernel execution and checks. Running either notebook regenerates
+its analytical outputs; the validation record documents the verified saved copy.
 The raw dataset remains the source of truth; exported subsets are analysis products.
 
 Milestone 1 preserves the original exploratory scope; Milestone 2 contains the
 fixed ten-product experiment and a work plan organized by activity and deliverable.
-Milestone 2 includes trained point-forecast models and validation comparisons.
+Milestone 2 includes trained point-forecast models, validation comparisons, and final test evaluation.
 Inventory and routing optimization remain later milestones.
 M5 describes U.S. retail activity: SNAP is defined in the notebook, and prices are in USD.

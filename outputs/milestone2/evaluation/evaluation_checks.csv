@@ -1,0 +1,12 @@
+check,passed,detail
+Identical test observations for all methods,True,Four methods each use the same 560 keys and actual totals; no missing or duplicated predictions.
+Original fitted models and validation choice preserved,True,"No validation/test refit, hyperparameter change, or model reselection occurs after test scoring."
+Test labels cannot enter prediction,True,Replacing all test target labels or removing labels/split flags leaves forecasts exactly unchanged.
+Test targets and benchmarks match raw daily sales,True,"All 560 targets, annual seasonal references, and preceding 28-day averages reconcile independently."
+Forecasts are finite and nonnegative,True,"Raw values are retained; scored forecasts apply only zero clipping, without rounding or dropping rows."
+All metric tables reconcile to individual errors,True,"Overall, product, quarter, and product-quarter MAE/RMSE/WAPE independently match their forecast rows."
+Subgroup totals reconstruct pooled metrics,True,Pool error sums and observation/volume totals; do not take an unweighted mean of group RMSE or WAPE.
+Quarter coverage and weekly timing are correct,True,All targets are intact Monday–Sunday weeks; only observed historical sales/prices enter each forecast.
+Ten-percent target and zero denominators handled,True,Both error metrics must fall by at least 10%; an undefined relative reduction is not reported as success.
+Interval calibration remains validation-only,True,The pre-scoring 80%/95% residual widths are unchanged; no test residuals influence interval calibration.
+Saved evaluation tables and frozen models round-trip,True,All seven result CSVs preserve their keys and values; saved original model states reproduce every test prediction.

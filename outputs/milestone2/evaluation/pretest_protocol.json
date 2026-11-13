@@ -1,0 +1,43 @@
+{
+  "selected_before_test": "lag_ridge",
+  "models": [
+    "seasonal_naive_52w",
+    "moving_average_4w",
+    "polynomial_trend",
+    "lag_ridge"
+  ],
+  "fit_end": "2015-03-01",
+  "fit_policy": "Use the original training-fitted coefficients; no refit on validation or test",
+  "forecast_policy": "Sequential one-week-ahead forecasts; earlier observed test sales may update later lag inputs",
+  "test_start": "2015-04-27",
+  "test_end": "2016-05-22",
+  "test_observations_per_model": 560,
+  "metrics": [
+    "MAE",
+    "RMSE",
+    "WAPE_pct"
+  ],
+  "primary_metric": "MAE",
+  "reference_model": "seasonal_naive_52w",
+  "target_relative_reduction_pct": 10.0,
+  "target_rule": "At least 10% lower overall MAE AND RMSE than seasonal naive; report each metric separately",
+  "target_scope": "Overall test result for the validation-selected model; product/quarter attainment is diagnostic",
+  "quarter_rule": "Assign the entire target week to its Monday's calendar quarter; identify partial quarters",
+  "zero_denominator_policy": "WAPE or relative improvement is undefined if its denominator is zero",
+  "negative_forecast_policy": "Clip negative forecasts at zero; retain raw values; no rounding",
+  "no_test_tuning_or_reselection": true,
+  "fitted_models_fingerprint": "bd3003458236f4a403214094e3e9f0c74b529aca7c1258020c4d15ea0750697b",
+  "interval_plan": {
+    "status": "Calibrated from validation before test scoring; interval construction, coverage, and plots are Part 5",
+    "nominal_levels": [
+      0.8,
+      0.95
+    ],
+    "method": "Per-model pooled absolute validation residual order statistics; symmetric widths; lower endpoint clipped to zero",
+    "rank_rule": "ceil((n+1)*coverage), 1-based order statistic",
+    "calibration_rows_per_model": 80,
+    "test_residuals_allowed_for_calibration": false,
+    "limitations": "Serial dependence, mixed product scales, and model selection on validation prevent an exact coverage guarantee"
+  },
+  "interval_calibration_sha256": "219b34af017f644f3227cfa95d442e412a47f78231ba708fa851c3ac65bdf68d"
+}

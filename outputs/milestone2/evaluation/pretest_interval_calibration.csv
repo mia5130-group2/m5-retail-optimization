@@ -1,0 +1,9 @@
+model,nominal_coverage,calibration_rows,calibration_start,calibration_end,order_statistic_rank,half_width_units
+seasonal_naive_52w,0.8,80,2015-03-02,2015-04-26,65,68.0
+seasonal_naive_52w,0.95,80,2015-03-02,2015-04-26,77,105.0
+moving_average_4w,0.8,80,2015-03-02,2015-04-26,65,40.5
+moving_average_4w,0.95,80,2015-03-02,2015-04-26,77,63.25
+polynomial_trend,0.8,80,2015-03-02,2015-04-26,65,48.711416721874116
+polynomial_trend,0.95,80,2015-03-02,2015-04-26,77,97.33755887315442
+lag_ridge,0.8,80,2015-03-02,2015-04-26,65,40.13876242472904
+lag_ridge,0.95,80,2015-03-02,2015-04-26,77,74.71898366331303
