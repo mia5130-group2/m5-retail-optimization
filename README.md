@@ -1,34 +1,47 @@
-# M5 Data Exploration and Data Understanding
+# M5 Course Project — Milestones 1 and 2
 
 **Group 2 - MIA5130A Systems Optimization and Management**
 
-Open **M5_Data_Exploration_and_Understanding.ipynb**. It contains executed tables,
-charts, interpretation, and a report-ready Data Understanding section for the team.
+- [Milestone 1 — Data Exploration and Understanding](M5_Milestone_1_Data_Exploration_and_Understanding.ipynb): data exploration,
+  illustrative baselines, and the report-ready Data Understanding draft.
+- [Milestone 2 — Demand Forecasting](M5_Milestone_2_Demand_Forecasting.ipynb): the fixed CA_1 experiment, product
+  selection audit, final weekly features, leakage checks, and trained-model comparison.
+
+Both notebooks include their own setup and can run independently from a fresh
+kernel. Run the notebook you need from top to bottom; Milestone 2 reads the raw
+CSV files directly and does not depend on Milestone 1 outputs or kernel state.
 
 ## Setup
 
-Python 3.12 is recommended; the notebook was executed with this version. In a terminal
+Use Python 3.15 with the NumPy and pandas versions pinned in `requirements.txt`. In a terminal
 opened in this project folder:
 
 ```bash
-python3 -m venv .venv
+python3.15 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
-python -m ipykernel install --user --name m5-exploration --display-name "Python (M5 exploration)"
+python -m ipykernel install --user --name m5-exploration --display-name "Python 3.15 (M5 exploration)"
 jupyter lab
 ```
 
-Select **Python (M5 exploration)** when opening the notebook. In VS Code, select the
-same environment as the notebook kernel. Run the notebook from top to bottom.
+Select **Python 3.15 (M5 exploration)** when opening either notebook. In VS Code,
+select this kernel or the project's `.venv/bin/python` interpreter. After updating
+packages, restart the kernel and run the selected notebook from top to bottom. A kernel
+restart clears imports, so running a later cell first can produce `pd is not defined`.
+
+The pinned versions replace older native NumPy/pandas builds that crashed during
+date conversion on Python 3.15. Each setup cell checks compatibility before loading
+those extensions. Calendar dates are explicitly parsed as ISO dates and normalized
+to nanosecond resolution for consistent joins and CSV round-trips.
 
 ## Data location
 
 Obtain the data from [Kaggle](https://www.kaggle.com/competitions/m5-forecasting-accuracy/data).
 Place the five CSV files in `data/`, or set `DATA_DIR_OVERRIDE` in the first code cell.
-The notebook also finds `~/Downloads/m5-forecasting-accuracy` automatically.
+Both notebooks also find `~/Downloads/m5-forecasting-accuracy` automatically.
 Alternatively set `M5_DATA_DIR` to that folder before opening Jupyter.
 
-Required files:
+Milestone 1 uses all five files:
 
 - calendar.csv
 - sales_train_evaluation.csv
@@ -36,11 +49,14 @@ Required files:
 - sell_prices.csv
 - sample_submission.csv
 
+Milestone 2 requires only `calendar.csv`, `sales_train_evaluation.csv`, and
+`sell_prices.csv`.
+
 Raw CSV files are read in place; they are not copied into this project or modified.
 The full audit uses the wide sales matrix; only ten selected product-store series
 are converted to long format. Allow approximately 1–2 GB of available working memory.
 
-## What is included
+## Milestone 1 contents
 
 - File inventory, checksums, schemas, and data dictionary.
 - Full overlap verification between the two sales files.
@@ -51,13 +67,37 @@ are converted to long format. Allow approximately 1–2 GB of available working 
 - Rolling-origin validation baselines; the final test window is not scored.
 - Inventory and routing limitations and a generated Data Understanding draft.
 
+## Milestone 2 contents
+
+- Fixed ten-product CA_1 scope, weekly target, chronological splits, and a work plan with deliverables.
+- Selection audit using only information available by the March 1, 2015 training cutoff.
+- Lagged sales, rolling statistics, historical prices, and known calendar features.
+- Independent row-by-row reconciliation and future-sales/price perturbation checks.
+- Final modeling panel, split labels, feature dictionary, exclusions, and reproduction instructions.
+
+- Seasonal-naive, four-week-average, polynomial, and lag-based ridge forecasts.
+- Chronological training-fold tuning, validation MAE/RMSE/WAPE, and forecasts for all ten products.
+- Saved model parameters, input definitions, and checks excluding test data from selection.
+
+Parts 1–3 are implemented. Prediction intervals and final held-out test evaluation
+remain the next steps. See [the model comparison](outputs/milestone2/models/README.md)
+for results and limitations.
+
 ## Outputs
 
-`outputs/` contains eight figure PNGs, compact profile/quality tables, the selected
+Milestone 1 writes directly under `outputs/`: eight figure PNGs, compact profile/quality tables, the selected
 daily sales table, a weekly forecasting panel, `data_profile.json`, exact runtime
-versions, and `data_understanding.md`. These are regenerated when you run all cells.
+versions, and `data_understanding.md`. These describe the earlier exploratory experiment.
+
+Milestone 2 writes its final dataset and supporting tables under `outputs/milestone2/`.
+See [the dataset handoff](outputs/milestone2/README.md) for predictor definitions
+and timing assumptions. Model outputs, figures, fitted parameters, and the validation
+comparison are in `outputs/milestone2/models/`. Running either notebook regenerates
+its own outputs.
 The raw dataset remains the source of truth; exported subsets are analysis products.
 
-The ten products and simulated routing scenario are proposals for team discussion.
-The notebook does not train the final ML model or solve inventory and routing problems.
+Milestone 1 preserves the original exploratory scope; Milestone 2 contains the
+fixed ten-product experiment and a work plan organized by activity and deliverable.
+Milestone 2 includes trained point-forecast models and validation comparisons.
+Inventory and routing optimization remain later milestones.
 M5 describes U.S. retail activity: SNAP is defined in the notebook, and prices are in USD.

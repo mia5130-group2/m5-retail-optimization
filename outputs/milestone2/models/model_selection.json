@@ -1,0 +1,43 @@
+{
+  "primary_metric": "Validation MAE (units per product-week); RMSE breaks ties",
+  "selected_model": "lag_ridge",
+  "lowest_RMSE_model": "moving_average_4w",
+  "hyperparameters": {
+    "polynomial_trend": {
+      "model": "polynomial_trend",
+      "degree": 2,
+      "candidate": "polynomial_degree_2"
+    },
+    "lag_ridge": {
+      "model": "lag_ridge",
+      "alpha": 100.0,
+      "candidate": "ridge_alpha_100"
+    }
+  },
+  "tuning_policy": "Three expanding training windows, each followed by eight held-out training weeks; pool 240 errors per candidate",
+  "fit_end": "2015-03-01",
+  "validation_start": "2015-03-02",
+  "validation_end": "2015-04-26",
+  "validation_observations_per_model": 80,
+  "coefficient_update_policy": "Coefficients fixed within each CV block and final validation; lag inputs update after observations occur",
+  "forecast_policy": "One week ahead; negative fitted-model outputs clipped to zero; no rounding",
+  "best_MAE_gain_vs_four_week_average_pct": 0.17476252664001546,
+  "test_used_for_tuning": false,
+  "test_used_for_model_selection": false,
+  "test_scored": false,
+  "prediction_intervals_available": false,
+  "checks_passed": true,
+  "training_check_count": 10,
+  "prepared_panel_sha256": "f6ab60ec3ac5768b6ba14a8cd399511fa88348f7ce63be8f90ce318c2e3d4bfa",
+  "source_sha256": {
+    "sales_train_evaluation.csv": "4b4a47c44c38380d2a9168216fea8c9ff2f31b1ddb772f8a0995952a038b8aa0",
+    "calendar.csv": "d12b5914ef03e66649adf5dd9e996e6602251c22b7a6af8f1f7e3aa12f8860f5",
+    "sell_prices.csv": "9da3ad1f8b8ccacdbdc70612191dd375ec24a4ac6625c24b75b3bc60b0bed2ef"
+  },
+  "versions": {
+    "python": "3.15.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  }
+}

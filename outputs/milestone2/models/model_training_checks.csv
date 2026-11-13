@@ -1,0 +1,11 @@
+check,passed,detail
+Common validation coverage,True,Four methods each predict the same 80 product-weeks; no rows are omitted.
+Training and tuning precede validation,True,Preprocessing and coefficients use only training observations; CV folds keep whole weeks together.
+Finite nonnegative point forecasts,True,Forecasts stay fractional; any negative raw predictions are recorded and clipped at zero.
+Benchmarks match raw daily history,True,All seasonal forecasts match sales 52 weeks earlier; all averages match the preceding 28 days / 4.
+Ridge agrees with independent solver,True,The augmented least-squares solution matches the regularized normal equations; intercept is unpenalized.
+Polynomial agrees with independent fit,True,"The ten curves agree with NumPy Polynomial.fit, despite using a different scaled basis."
+Prediction does not read labels or split flags,True,Predicting from the input-only frame gives exactly the same forecasts.
+Test perturbations cannot affect model selection,True,"Changing every test target/input leaves tuning, fitted parameters, and validation forecasts exactly unchanged."
+Exported comparison reconciles to row errors,True,"MAE, RMSE, and WAPE agree with independently aggregated per-observation errors."
+Saved models and predictions round-trip,True,Reloaded JSON model states reproduce all forecasts; the CSV preserves prediction values and order.

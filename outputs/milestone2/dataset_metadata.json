@@ -1,0 +1,137 @@
+{
+  "experiment": {
+    "store_id": "CA_1",
+    "state_id": "CA",
+    "category": "FOODS",
+    "item_ids": [
+      "FOODS_3_586",
+      "FOODS_3_252",
+      "FOODS_3_714",
+      "FOODS_3_607",
+      "FOODS_3_064",
+      "FOODS_3_555",
+      "FOODS_2_197",
+      "FOODS_3_739",
+      "FOODS_3_501",
+      "FOODS_3_099"
+    ],
+    "forecast_horizon_days": 7,
+    "week_frequency": "W-SUN",
+    "train_start": "2011-01-31",
+    "train_end": "2015-03-01",
+    "validation_start": "2015-03-02",
+    "validation_end": "2015-04-26",
+    "test_start": "2015-04-27",
+    "test_end": "2016-05-22",
+    "validation_weeks": 8,
+    "test_fraction": 0.2,
+    "selection_sales_days": 365,
+    "selection_price_weeks": 104,
+    "minimum_positive_day_fraction": 0.9
+  },
+  "record_grain": "One product at CA_1 for a Monday-Sunday target week",
+  "target_column": "target_units",
+  "target_unit": "Observed units per product-week",
+  "feature_columns": [
+    "item_id",
+    "store_id",
+    "dept_id",
+    "cat_id",
+    "state_id",
+    "sales_lag_1w",
+    "sales_lag_2w",
+    "sales_lag_4w",
+    "sales_lag_52w",
+    "sales_mean_4w",
+    "sales_mean_8w",
+    "sales_std_4w",
+    "last_observed_price",
+    "price_age_days",
+    "snap_days",
+    "event_days",
+    "target_month",
+    "target_year",
+    "target_weekofyear"
+  ],
+  "categorical_features": [
+    "item_id",
+    "store_id",
+    "dept_id",
+    "cat_id",
+    "state_id"
+  ],
+  "numeric_features": [
+    "sales_lag_1w",
+    "sales_lag_2w",
+    "sales_lag_4w",
+    "sales_lag_52w",
+    "sales_mean_4w",
+    "sales_mean_8w",
+    "sales_std_4w",
+    "last_observed_price",
+    "price_age_days",
+    "snap_days",
+    "event_days",
+    "target_month",
+    "target_year",
+    "target_weekofyear"
+  ],
+  "metadata_columns_excluded_from_inputs": [
+    "forecast_origin",
+    "week_start",
+    "week_end",
+    "split",
+    "target_quarter",
+    "sales_information_date",
+    "price_information_date",
+    "price_record_week",
+    "history_weeks_available"
+  ],
+  "date_columns": [
+    "forecast_origin",
+    "week_start",
+    "week_end",
+    "sales_information_date",
+    "price_information_date"
+  ],
+  "selected_daily_rows": 19410,
+  "complete_product_weeks_before_filters": 2770,
+  "modeling_rows": 2193,
+  "excluded_training_rows": 577,
+  "split_rows": {
+    "test": 560,
+    "train": 1553,
+    "validation": 80
+  },
+  "calendar_week_counts_before_feature_filters": {
+    "train": 213,
+    "validation": 8,
+    "test": 56
+  },
+  "missing_value_policy": "Retain genuine zero sales; drop rows without 52 prior complete weeks or an available historical price. No backfill or zero-price imputation. Evaluation weeks are all retained.",
+  "price_availability_assumption": "A weekly average becomes available only after its complete Saturday-Friday retail week ends; carry the latest known value forward.",
+  "calendar_availability_assumption": "Supplied target-week calendar and California SNAP flags are treated as known. Event announcement timestamps are unavailable; verify this assumption for operational deployment.",
+  "rolling_evaluation_policy": "At each weekly origin, earlier observed validation/test sales may supply lag features. Future weeks cannot. Keep test outcomes out of model selection and tuning.",
+  "quarter_assignment": "Quarter of the target Monday; do not split a weekly target across quarters.",
+  "scope_limit": "Ten frequent-selling food products at one store; observed sales do not measure unmet demand. Earlier zero observations can predate a product's listed-price history.",
+  "checks_passed": true,
+  "preparation_check_count": 19,
+  "independent_reconciliation_errors": {
+    "target": 0,
+    "lags": 0,
+    "rolling_means": 0,
+    "rolling_std": 0,
+    "prices": 0,
+    "calendar": 0
+  },
+  "source_sha256": {
+    "sales_train_evaluation.csv": "4b4a47c44c38380d2a9168216fea8c9ff2f31b1ddb772f8a0995952a038b8aa0",
+    "calendar.csv": "d12b5914ef03e66649adf5dd9e996e6602251c22b7a6af8f1f7e3aa12f8860f5",
+    "sell_prices.csv": "9da3ad1f8b8ccacdbdc70612191dd375ec24a4ac6625c24b75b3bc60b0bed2ef"
+  },
+  "versions": {
+    "python": "3.15.0",
+    "pandas": "3.1.1",
+    "numpy": "2.5.4"
+  }
+}

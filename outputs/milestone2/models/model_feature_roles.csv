@@ -1,0 +1,20 @@
+model,input,construction
+seasonal_naive_52w,sales_lag_52w,Observed weekly units 52 weeks before the target
+moving_average_4w,sales_mean_4w,Mean of four completed weekly unit totals
+polynomial_trend,scaled_calendar_week_index,"Known target Monday minus train_start, divided by seven days; center/scale fitted per product using training rows"
+polynomial_trend,item_id,Select the product's separately fitted polynomial
+lag_ridge,item_id,Training-only product indicators; first sorted product is the reference
+lag_ridge,sales_lag_1w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,sales_lag_2w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,sales_lag_4w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,sales_lag_52w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,sales_mean_4w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,sales_mean_8w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,sales_std_4w,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,last_observed_price,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,price_age_days,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,snap_days,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,event_days,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,target_month,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,target_year,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"
+lag_ridge,target_weekofyear,"Prepared historical/calendar feature, standardized using training-only mean and population standard deviation"

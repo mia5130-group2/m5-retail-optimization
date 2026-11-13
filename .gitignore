@@ -1,5 +1,15 @@
+# Local Python environment and bytecode
 .venv/
-.ipynb_checkpoints/
 __pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints and macOS metadata
+.ipynb_checkpoints/
 .DS_Store
+
+# Raw M5 inputs and downloads
+# Keep the milestone notebooks and derived outputs/ files in Git.
 data/
+m5-forecasting-accuracy/
+m5-forecasting-accuracy.zip

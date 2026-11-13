@@ -5,7 +5,7 @@
       "file": "sales_train_evaluation.csv",
       "rows": 30490,
       "columns": 1947,
-      "record_grain": "Product–store",
+      "record_grain": "Product\u2013store",
       "start": "2011-01-29",
       "end": "2016-05-22"
     },
@@ -13,7 +13,7 @@
       "file": "sales_train_validation.csv",
       "rows": 30490,
       "columns": 1919,
-      "record_grain": "Product–store; overlap checked below",
+      "record_grain": "Product\u2013store; overlap checked below",
       "start": "2011-01-29",
       "end": "2016-04-24"
     },
@@ -29,7 +29,7 @@
       "file": "sell_prices.csv",
       "rows": 6841121,
       "columns": 4,
-      "record_grain": "Product–store–week",
+      "record_grain": "Product\u2013store\u2013week",
       "start": "Join through calendar",
       "end": "Join through calendar"
     },
@@ -93,12 +93,12 @@
   },
   "quality_checks_all_passed": true,
   "versions": {
-    "numpy": "2.3.5",
-    "pandas": "2.2.3",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
     "matplotlib": "3.11.2",
     "ipykernel": "7.4.0",
     "nbformat": "5.11.1",
-    "python": "3.12.14"
+    "python": "3.15.0"
   },
   "source_md5": {
     "calendar.csv": "3ffeab2991b0c8e861d008b39ea4c95c",
@@ -106,6 +106,5 @@
     "sales_train_validation.csv": "26a366a25beb57b0a8f4c7b148758f94",
     "sell_prices.csv": "08c591caa99e55daf3e0ccac913f7c85",
     "sample_submission.csv": "c281a69d7c011274899d92020a66e25b"
-  },
-  "team": "Group 2 - MIA5130A Systems Optimization and Management"
+  }
 }

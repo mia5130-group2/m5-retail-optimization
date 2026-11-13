@@ -1,0 +1,30 @@
+field,role,definition,availability,model_input,dtype
+item_id,Categorical input,Product/store hierarchy from the source sales record,Known at forecast origin,True,string
+store_id,Categorical input,Product/store hierarchy from the source sales record,Known at forecast origin,True,string
+dept_id,Categorical input,Product/store hierarchy from the source sales record,Known at forecast origin,True,string
+cat_id,Categorical input,Product/store hierarchy from the source sales record,Known at forecast origin,True,string
+state_id,Categorical input,Product/store hierarchy from the source sales record,Known at forecast origin,True,string
+forecast_origin,Metadata; exclude from inputs,"Sunday immediately before target week, interpreted as end of day",Forecast issue date,False,datetime64[ns]
+week_start,Metadata; exclude from inputs,Target Monday,Known calendar,False,datetime64[ns]
+week_end,Metadata; exclude from inputs,Target Sunday,Known calendar,False,datetime64[ns]
+split,Metadata; exclude from inputs,train/validation/test assigned by the fixed target-week boundaries,Experiment configuration,False,str
+target_quarter,Metadata; exclude from inputs,Calendar quarter of target Monday; crossing weeks stay together,"For later reporting, not a model predictor",False,str
+sales_information_date,Metadata; exclude from inputs,Latest permissible date used for historical sales inputs,Equals forecast origin; actual windows independently checked,False,datetime64[ns]
+price_information_date,Metadata; exclude from inputs,End date of the completed retail week supplying the price input,Must not exceed forecast origin,False,datetime64[ns]
+price_record_week,Metadata; exclude from inputs,Original wm_yr_wk key for the historical price selected,Historical record provenance,False,Int64
+history_weeks_available,Metadata; exclude from inputs,Number of earlier complete observed weeks,Used to document 52-week feature warm-up,False,int64
+sales_lag_1w,Numeric input,Total units in the complete week 1 week(s) before the target week,Historical sales only; last contributing date is on or before forecast origin,True,float64
+sales_lag_2w,Numeric input,Total units in the complete week 2 week(s) before the target week,Historical sales only; last contributing date is on or before forecast origin,True,float64
+sales_lag_4w,Numeric input,Total units in the complete week 4 week(s) before the target week,Historical sales only; last contributing date is on or before forecast origin,True,float64
+sales_lag_52w,Numeric input,Total units in the complete week 52 week(s) before the target week,Historical sales only; last contributing date is on or before forecast origin,True,float64
+sales_mean_4w,Numeric input,Mean of the preceding 4 complete weekly totals; shift before rolling,Historical sales only; window ends at forecast origin,True,float64
+sales_mean_8w,Numeric input,Mean of the preceding 8 complete weekly totals; shift before rolling,Historical sales only; window ends at forecast origin,True,float64
+sales_std_4w,Numeric input,Sample standard deviation of the preceding four weekly totals (ddof=1),Historical; window ends at forecast origin,True,float64
+last_observed_price,Numeric input,Latest available completed-retail-week selling price in USD,Price week must end on or before forecast origin,True,float64
+price_age_days,Numeric input,Days from the selected price week end to forecast origin,Historical price provenance,True,float64
+snap_days,Numeric input,Number of target-week days with snap_CA=1,Supplied calendar assumed known at forecast origin,True,int8
+event_days,Numeric input,Number of target-week days with at least one listed event,Supplied calendar assumed known; event announcement timestamps are unavailable,True,int8
+target_month,Numeric input,Calendar month of target Monday,Known calendar,True,int32
+target_year,Numeric input,Calendar year of target Monday,Known calendar,True,int32
+target_weekofyear,Numeric input,ISO week number of target Monday,Known calendar,True,int16
+target_units,Label; exclude from inputs,Observed unit sales summed over the next Monday-Sunday week,Only observed after the target week ends,False,int32

@@ -1,12 +1,29 @@
 {
+  "milestone": 1,
+  "notebook_path": "/Users/hshazel/Projects/m5-data-exploration/M5_Milestone_1_Data_Exploration_and_Understanding.ipynb",
+  "notebook_sha256": "ebe24f7eff5f23daccc2e7f817d5328bfaf8957e48507bc99cde8235e0642aef",
+  "python_executable": "/Users/hshazel/Projects/m5-data-exploration/.venv/bin/python",
+  "kernel_name": "m5-exploration",
+  "execution_method": "nbclient; fresh kernel and separate working directory for each notebook",
   "notebook_cells": 37,
   "executed_code_cells": 21,
+  "error_outputs": 0,
+  "warning_outputs": 0,
   "embedded_figures": 8,
-  "selected_daily_rows": 19410,
+  "elapsed_seconds": 13.04,
+  "versions": {
+    "python": "3.15.0",
+    "pandas": "3.1.1",
+    "numpy": "2.5.4"
+  },
+  "independent_execution_passed": true,
+  "team": "Group 2 - MIA5130A Systems Optimization and Management",
+  "structural_checks_passed": true,
   "weekly_modeling_rows": 2398,
-  "target_and_lag_reconciliations": "All rows match independently grouped daily sales",
-  "price_timing_check": "Every feature price is from a completed retail week",
-  "source_profile_reconciliation": "Matches earlier independently calculated M5 profile",
-  "warnings_or_errors": 0,
-  "team": "Group 2 - MIA5130A Systems Optimization and Management"
+  "selected_daily_rows": 19410,
+  "exported_values_match_before_split": true,
+  "source_files_unchanged": true,
+  "executed_notebook_sha256": "b153dda06ea1a7b3da62e5af8173a078f512d480cf71f53bfa883eb577fb2080",
+  "notebook_kernel_name": "python3",
+  "post_execution_changes": "Kernel-selection metadata and the output-file inventory were updated; executable cells and analytical outputs match the validated run."
 }

@@ -1,0 +1,20 @@
+check,passed,rows_checked,detail
+Fixed product selection uses training data only,True,10,365-day sales ranking and 104 completed price weeks stop at the training cutoff.
+Unique consecutive daily observations,True,19410,Each selected product has one observation per date; genuine zeros are retained.
+Feature information dates do not exceed forecast origins,True,2193,Sales history ends on Sunday; every selected price belongs to a completed retail week.
+Independent reconciliation: target,True,2193,Recomputed from raw dated observations; zero mismatches required.
+Independent reconciliation: lags,True,8772,Recomputed from raw dated observations; zero mismatches required.
+Independent reconciliation: rolling_means,True,4386,Recomputed from raw dated observations; zero mismatches required.
+Independent reconciliation: rolling_std,True,2193,Recomputed from raw dated observations; zero mismatches required.
+Independent reconciliation: prices,True,2193,Recomputed from raw dated observations; zero mismatches required.
+Independent reconciliation: calendar,True,2193,Recomputed from raw dated observations; zero mismatches required.
+All evaluation product-weeks retained,True,640,Ten products share all eight validation weeks and all 56 test weeks.
+Only declared predictors enter the feature matrix,True,19,"Use M2_FEATURE_COLUMNS explicitly; labels, split flags, and provenance fields are not predictors."
+Future sales perturbation at 2015-03-01,True,2140,"Adding 100,000 units to every later day leaves all earlier/origin-date features unchanged."
+Future price perturbation at 2015-03-01,True,2140,Changing later and unfinished retail-week prices leaves features unchanged; 10 unfinished-week records exercised.
+Future sales perturbation at 2015-04-26,True,2220,"Adding 100,000 units to every later day leaves all earlier/origin-date features unchanged."
+Future price perturbation at 2015-04-26,True,2220,Changing later and unfinished retail-week prices leaves features unchanged; 10 unfinished-week records exercised.
+Future sales perturbation at 2016-05-15,True,2770,"Adding 100,000 units to every later day leaves all earlier/origin-date features unchanged."
+Future price perturbation at 2016-05-15,True,2770,Changing later and unfinished retail-week prices leaves features unchanged; 10 unfinished-week records exercised.
+Raw source files unchanged,True,3,SHA-256 values match before and after data preparation.
+Exported panel round-trip,True,2193,"Saved CSV preserves product IDs, dates, labels, split flags, numeric features, and timing checks."

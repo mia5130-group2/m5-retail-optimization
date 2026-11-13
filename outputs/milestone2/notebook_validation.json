@@ -1,0 +1,42 @@
+{
+  "milestone": 2,
+  "completed_parts": [
+    1,
+    2,
+    3
+  ],
+  "notebook_path": "/Users/hshazel/Projects/m5-data-exploration/M5_Milestone_2_Demand_Forecasting.ipynb",
+  "notebook_sha256": "d078e849c0f95120c2f02aba1bb17e104b545679046be660f6f88f2b2d5b151d",
+  "python_executable": "/Users/hshazel/Projects/m5-data-exploration/.venv/bin/python",
+  "kernel_name": "m5-exploration",
+  "execution_method": "nbclient; fresh project Python 3.15 kernel, isolated working directory",
+  "notebook_cells": 31,
+  "executed_code_cells": 14,
+  "error_outputs": 0,
+  "warning_outputs": 0,
+  "embedded_figures": 2,
+  "elapsed_seconds": 8.39,
+  "versions": {
+    "python": "3.15.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  },
+  "dataset_checks": 19,
+  "model_training_checks": 10,
+  "weekly_modeling_rows": 2193,
+  "split_rows": {
+    "test": 560,
+    "train": 1553,
+    "validation": 80
+  },
+  "compared_models": 4,
+  "validation_forecasts_per_model": 80,
+  "model_selected_by_validation_MAE": "lag_ridge",
+  "test_scored": false,
+  "data_values_unchanged": true,
+  "source_files_unchanged": true,
+  "team": "Group 2 - MIA5130A Systems Optimization and Management",
+  "executed_notebook_sha256": "83711208d0379f90b18e619fdf6b7daab1d0749b1f124eda23bfef1b14507bf8",
+  "post_execution_changes": "Section 2.3 and related planning text updated; code cells and saved outputs are unchanged."
+}
